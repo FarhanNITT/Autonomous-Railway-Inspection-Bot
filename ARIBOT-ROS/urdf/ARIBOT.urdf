@@ -1,0 +1,564 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- This URDF was automatically created by SolidWorks to URDF Exporter! Originally created by Stephen Brawner (brawner@gmail.com) 
+     Commit Version: 1.6.0-4-g7f85cfe  Build Version: 1.6.7995.38578
+     For more information, please see http://wiki.ros.org/sw_urdf_exporter -->
+<robot
+  name="Aribot">
+
+
+  <link name="base_link"/>
+
+  <joint name="base_link_to_frame" type="fixed">
+    <origin
+      xyz="0 0 0.5"
+      rpy="0 0 0" />
+    <parent link="base_link"/>
+    <child link="Main_Frame"/>
+  </joint>
+
+<!-- %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% -->
+
+  <link
+    name="Main_Frame">
+    <inertial>
+      <origin
+        xyz="0.0717709952978995 0.119999999999937 -0.0228889617562367"
+        rpy="0 0 0" />
+      <mass
+        value="77.7230117454762" />
+      <inertia
+        ixx="8.64031463590464"
+        ixy="1.07381683961405E-08"
+        ixz="2.28474308907644E-15"
+        iyy="5.82929348084091"
+        iyz="6.35721833589503E-15"
+        izz="6.52219663467182" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://aribot/meshes/Main_Frame.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.792156862745098 0.819607843137255 0.933333333333333 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://aribot/meshes/Main_Frame.STL" />
+      </geometry>
+    </collision>
+  </link>
+
+<!-- %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% -->
+
+  <link
+    name="flw">
+    <inertial>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <mass
+        value="2.52907768072339" />
+      <inertia
+        ixx="0.008507457946081"
+        ixy="-2.00936705349142E-08"
+        ixz="-2.9288649425361E-06"
+        iyy="0.00802972984266959"
+        iyz="-8.91391530142956E-10"
+        izz="0.00802975031494158" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0.399510532190208 -0.395453747716097 +0.366570227634273"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://aribot/meshes/FLW.STL" 
+          scale="0.5 1 1"/>
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.792156862745098 0.819607843137255 0.933333333333333 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0.399510532190208 -0.395453747716097 +0.366570227634273"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://aribot/meshes/FLW.STL" 
+          scale="0.5 1 1"/>
+      </geometry>
+    </collision>
+  </link>
+  
+  <joint
+    name="mf_flw"
+    type="continuous">
+    <origin
+      xyz="-0.779021064380416 0.395453747716097 -0.366570227634273"
+      rpy="0 0 0" />
+    <parent
+      link="Main_Frame" />
+    <child
+      link="flw" />
+    <axis
+      xyz="1 0 0" />
+  </joint>
+
+<!-- %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% -->
+
+  <link
+    name="frw">
+    <inertial>
+      <origin
+        xyz="0.461281527406692 0.395453775612817 -0.366570215946312"
+        rpy="0 0 0" />
+      <mass
+        value="2.52907768394816" />
+      <inertia
+        ixx="0.00850745791271025"
+        ixy="2.64738538377897E-08"
+        ixz="2.93153879366215E-06"
+        iyy="0.00802973012348741"
+        iyz="-1.11149048416541E-09"
+        izz="0.00802975010088918" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="-0.461281527406692 -0.395453775612817 0.366570215946312"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://aribot/meshes/FRW.STL" 
+          scale="0.5 1 1"/>
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.792156862745098 0.819607843137255 0.933333333333333 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="-0.461281527406692 -0.395453775612817 0.366570215946312"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://aribot/meshes/FRW.STL" 
+          scale="0.5 1 1"/>
+      </geometry>
+    </collision>
+  </link>
+
+  <joint
+    name="mf_frw"
+    type="continuous">
+    <origin
+      xyz="0.922563054813384 0.395453775612817 -0.366570215946312"
+      rpy="0 0 0" />
+    <parent
+      link="Main_Frame" />
+    <child
+      link="frw" />
+    <axis
+      xyz="1 0 0" />
+  </joint>
+  
+<!-- %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% -->
+
+  <link
+    name="blw">
+    <inertial>
+      <origin
+        xyz="-0.3895105321288915 -0.155453762879471 -0.366570221746071"
+        rpy="0 0 0" />
+      <mass
+        value="2.52907768381589" />
+      <inertia
+        ixx="0.00850745792928744"
+        ixy="2.35622819098446E-08"
+        ixz="-2.93021215744386E-06"
+        iyy="0.00802972999331466"
+        iyz="1.01701862963767E-09"
+        izz="0.00802975021315278" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0.3995105321288915 0.155453762879471 0.366570221746071"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://aribot/meshes/BLW.STL" 
+          scale="0.5 1 1"/>
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.792156862745098 0.819607843137255 0.933333333333333 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0.3995105321288915 0.155453762879471 0.366570221746071"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://aribot/meshes/BLW.STL" 
+          scale="0.5 1 1"/>
+      </geometry>
+    </collision>
+  </link>
+
+  <joint
+    name="mf_blw"
+    type="continuous">
+    <origin
+      xyz="-0.779021064257783 -0.155453762879471 -0.366570221746071"
+      rpy="0 0 0" />
+    <parent
+      link="Main_Frame" />
+    <child
+      link="blw" />
+    <axis
+      xyz="1 0 0" />
+  </joint>
+
+<!-- %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% -->
+
+  <link
+    name="brw">
+    <inertial>
+      <origin
+        xyz="0.4612815272460325 -0.155453872427743 -0.366570135261007"
+        rpy="0 0 0" />
+      <mass
+        value="2.52907767738676" />
+      <inertia
+        ixx="0.00850745768199721"
+        ixy="-4.8606221156604E-08"
+        ixz="2.94999144164269E-06"
+        iyy="0.008029731566625"
+        iyz="1.24369449691537E-09"
+        izz="0.00802974881976017" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="-0.4612815272460325 0.155453872427743 0.366570135261007"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://aribot/meshes/BRW.STL" 
+          scale="0.5 1 1"/>
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.792156862745098 0.819607843137255 0.933333333333333 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="-0.4612815272460325 0.155453872427743 0.366570135261007"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://aribot/meshes/BRW.STL" 
+          scale="0.5 1 1"/>
+      </geometry>
+    </collision>
+  </link>
+
+  <joint
+    name="mf_brw"
+    type="continuous">
+    <origin
+      xyz="0.922563054492065 -0.155453872427743 -0.366570135261007"
+      rpy="0 0 0" />
+    <parent
+      link="Main_Frame" />
+    <child
+      link="brw" />
+    <axis
+      xyz="1 0 0" />
+  </joint>
+
+
+<!-- %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% -->
+
+
+<!-- Camera -->
+  <link name="camera_link">
+
+    <visual>
+      <origin xyz="0 0 0" rpy="0 0 0"/>
+      <geometry>
+    <box size="0.05 0.05 0.05"/>
+      </geometry>
+      <material name="red"/>
+    </visual>
+
+    <inertial>
+      <mass value="1e-5" />
+      <origin xyz="0 0 0" rpy="0 0 0"/>
+      <inertia ixx="1e-6" ixy="0" ixz="0" iyy="1e-6" iyz="0" izz="1e-6" />
+    </inertial>
+  </link>
+
+  <joint name="camera_joint" type="fixed">
+    <axis xyz="0 1 0" />
+    <origin xyz="0 0 0" rpy="0 1.57079632679 0"/>
+    <parent link="Main_Frame"/>
+    <child link="camera_link"/>
+  </joint>
+
+
+<!-- %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% -->
+
+<!-- Hokuyo Laser -->
+  <link name="hokuyo_link_1">
+    <collision>
+      <origin xyz="0 0 0" rpy="0 0 0"/>
+      <geometry>
+    <box size="0.1 0.1 0.1"/>
+      </geometry>
+    </collision>
+
+    <visual>
+      <origin xyz="0 0 0" rpy="0 0 0"/>
+      <geometry>
+        <box size="0.05 0.05 0.05"/>
+      </geometry>
+    </visual>
+
+    <inertial>
+      <mass value="1e-5" />
+      <origin xyz="0 0 0" rpy="0 0 0"/>
+      <inertia ixx="1e-6" ixy="0" ixz="0" iyy="1e-6" iyz="0" izz="1e-6" />
+    </inertial>
+  </link>
+
+  <joint name="hokuyo_joint_1" type="fixed">
+    <axis xyz="0 1 0" />
+    <origin xyz="1.12 0.7 0" rpy="0 1.570796 1.5707963267948966"/>
+    <parent link="Main_Frame"/>
+    <child link="hokuyo_link_1"/>
+  </joint>
+
+
+<!-- Hokuyo Laser -->
+  <link name="hokuyo_link_2">
+    <collision>
+      <origin xyz="0 0 0" rpy="0 0 0"/>
+      <geometry>
+    <box size="0.1 0.1 0.1"/>
+      </geometry>
+    </collision>
+
+    <visual>
+      <origin xyz="0 0 0" rpy="0 0 0"/>
+      <geometry>
+        <box size="0.05 0.05 0.05"/>
+      </geometry>
+    </visual>
+
+    <inertial>
+      <mass value="1e-5" />
+      <origin xyz="0 0 0" rpy="0 0 0"/>
+      <inertia ixx="1e-6" ixy="0" ixz="0" iyy="1e-6" iyz="0" izz="1e-6" />
+    </inertial>
+  </link>
+
+  <joint name="hokuyo_joint_2" type="fixed">
+    <axis xyz="0 1 0" />
+    <origin xyz="-0.97 0.7 0" rpy="0 1.570796 1.5707963267948966"/>
+    <parent link="Main_Frame"/>
+    <child link="hokuyo_link_2"/>
+  </joint>
+<!-- %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% -->
+
+
+
+  <!-- #########################  Transmission element  ###########################-->
+
+
+
+  <transmission name="tran1_1">
+        <type>transmission_interface/SimpleTransmission</type>
+        <joint name="mf_frw">
+          <hardwareInterface>hardware_interface/VelocityJointInterface</hardwareInterface>
+        </joint>
+        <actuator name="motor1">
+          <hardwareInterface>hardware_interface/VelocityJointInterface</hardwareInterface>
+          <mechanicalReduction>1</mechanicalReduction>
+        </actuator>
+      </transmission>
+
+  <transmission name="tran1_2">
+        <type>transmission_interface/SimpleTransmission</type>
+        <joint name="mf_flw">
+          <hardwareInterface>hardware_interface/VelocityJointInterface</hardwareInterface>
+        </joint>
+        <actuator name="motor2">
+          <hardwareInterface>hardware_interface/VelocityJointInterface</hardwareInterface>
+          <mechanicalReduction>1</mechanicalReduction>
+        </actuator>
+      </transmission>
+
+  <transmission name="tran1_3">
+        <type>transmission_interface/SimpleTransmission</type>
+        <joint name="mf_brw">
+          <hardwareInterface>hardware_interface/VelocityJointInterface</hardwareInterface>
+        </joint>
+        <actuator name="motor3">
+          <hardwareInterface>hardware_interface/VelocityJointInterface</hardwareInterface>
+          <mechanicalReduction>1</mechanicalReduction>
+        </actuator>
+      </transmission>
+
+  <transmission name="tran1_4">
+        <type>transmission_interface/SimpleTransmission</type>
+        <joint name="mf_blw">
+          <hardwareInterface>hardware_interface/VelocityJointInterface</hardwareInterface>
+        </joint>
+        <actuator name="motor4">
+          <hardwareInterface>hardware_interface/VelocityJointInterface</hardwareInterface>
+          <mechanicalReduction>1</mechanicalReduction>
+        </actuator>
+      </transmission>
+
+<!-- #########################  Gazebo element  ###########################-->
+
+  <gazebo>
+  <plugin name="gazebo_ros_control" filename="libgazebo_ros_control.so">
+    <robotNamespace>/Aribot</robotNamespace>
+  </plugin>
+</gazebo>
+
+
+<gazebo reference="camera_link">
+    <sensor type="camera" name="camera1">
+      <update_rate>30.0</update_rate>
+      <camera name="head">
+        <horizontal_fov>1.3962634</horizontal_fov>
+        <image>
+          <width>800</width>
+          <height>800</height>
+          <format>R8G8B8</format>
+        </image>
+        <clip>
+          <near>0.02</near>
+          <far>300</far>
+        </clip>
+        <noise>
+          <type>gaussian</type>
+          <mean>0.0</mean>
+          <stddev>0.007</stddev>
+        </noise>
+      </camera>
+      <plugin name="camera_controller" filename="libgazebo_ros_camera.so">
+        <alwaysOn>true</alwaysOn>
+        <updateRate>10.0</updateRate>
+        <cameraName>/Aribot/camera1</cameraName>
+        <imageTopicName>image_raw</imageTopicName>
+        <cameraInfoTopicName>camera_info</cameraInfoTopicName>
+        <frameName>camera_link</frameName>
+        <hackBaseline>0.07</hackBaseline>
+        <distortionK1>0.0</distortionK1>
+        <distortionK2>0.0</distortionK2>
+        <distortionK3>0.0</distortionK3>
+        <distortionT1>0.0</distortionT1>
+        <distortionT2>0.0</distortionT2>
+      </plugin>
+    </sensor>
+  </gazebo>
+
+
+  <!-- hokuyo -->
+  <gazebo reference="hokuyo_link_1">
+    <sensor type="ray" name="head_hokuyo_sensor1">
+      <pose>0 0 0 0 0 0</pose>
+      <visualize>true</visualize>
+      <update_rate>30</update_rate>
+      <ray>
+        <scan>
+          <horizontal>
+            <samples>300</samples>
+            <resolution>1</resolution>
+            <min_angle>0</min_angle>
+            <max_angle>1.35</max_angle>
+          </horizontal>
+        </scan>
+        <range>
+          <min>0.1</min>
+          <max>50.0</max>
+          <resolution>0.001</resolution>
+        </range>
+        <noise>
+          <type>gaussian</type>
+          <!-- Noise parameters based on published spec for Hokuyo laser
+               achieving "+-30mm" accuracy at range < 10m.  A mean of 0.0m and
+               stddev of 0.01m will put 99.7% of samples within 0.03m of the true
+               reading. -->
+          <mean>0.0</mean>
+          <stddev>0.005</stddev>
+        </noise>
+      </ray>
+      <plugin name="gazebo_ros_head_hokuyo_controller" filename="libgazebo_ros_laser.so">
+        <topicName>/Aribot/laser/scan</topicName>
+        <frameName>hokuyo_link_1</frameName>
+      </plugin>
+    </sensor>
+  </gazebo>
+
+
+  <!-- hokuyo -->
+  <gazebo reference="hokuyo_link_2">
+    <sensor type="ray" name="head_hokuyo_sensor2">
+      <pose>0 0 0 0 0 0</pose>
+      <visualize>true</visualize>
+      <update_rate>30</update_rate>
+      <ray>
+        <scan>
+          <horizontal>
+            <samples>300</samples>
+            <resolution>1</resolution>
+            <min_angle>-1.35</min_angle>
+            <max_angle>0</max_angle>
+          </horizontal>
+        </scan>
+        <range>
+          <min>0.1</min>
+          <max>50.0</max>
+          <resolution>0.001</resolution>
+        </range>
+        <noise>
+          <type>gaussian</type>
+          <!-- Noise parameters based on published spec for Hokuyo laser
+               achieving "+-30mm" accuracy at range < 10m.  A mean of 0.0m and
+               stddev of 0.01m will put 99.7% of samples within 0.03m of the true
+               reading. -->
+          <mean>0.0</mean>
+          <stddev>0.005</stddev>
+        </noise>
+      </ray>
+      <plugin name="gazebo_ros_head_hokuyo_controller" filename="libgazebo_ros_laser.so">
+        <topicName>/Aribot/laser/scan</topicName>
+        <frameName>hokuyo_link_2</frameName>
+      </plugin>
+    </sensor>
+  </gazebo>
+
+</robot>
