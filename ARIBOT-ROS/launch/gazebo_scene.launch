@@ -1,0 +1,69 @@
+<launch>
+  
+  <!-- We resume the logic in empty_world.launch, changing only the name of the world to be launched -->
+  <include file="$(find gazebo_ros)/launch/empty_world.launch">
+    <arg name="world_name" value="$(find world_pkg)world/track_world.world"/> <!-- Note: the world_name is with respect to GAZEBO_RESOURCE_PATH environmental variable -->
+    <arg name="paused" value="false"/>
+    <arg name="use_sim_time" value="true"/>
+    <arg name="gui" value="true"/>
+    <arg name="headless" value="false"/> <!-- Inert - see gazebo_ros_pkgs issue #491 -->
+    <arg name="recording" value="false"/>
+    <arg name="debug" value="false"/>
+  </include>
+  
+  <param
+    name="robot_description"
+    textfile="$(find aribot)/urdf/Aribot.urdf" />
+
+
+  <arg name="x" default="5"/>
+  <arg name="y" default="5"/>
+  <arg name="z" default="0"/>
+
+
+  <node
+    name="spawn_model"
+    pkg="gazebo_ros"
+    type="spawn_model"
+    args="-file $(find aribot)/urdf/Aribot.urdf -urdf -model Aribot -x $(arg x) -y $(arg y) -z $(arg z)"
+    output="screen" />
+
+  <node
+    name="fake_joint_calibration"
+    pkg="rostopic"
+    type="rostopic"
+    args="pub /calibrated std_msgs/Bool true" />
+  
+      <!-- Load controllers to ros parameter server -->
+    <rosparam file="$(find aribot)/config/velocity_controller.yaml" command="load"/>
+
+    <!-- Joint state publisher-->
+    <node name="joint_state_publisher" pkg="joint_state_publisher" type="joint_state_publisher" />
+
+    
+    <!-- Load controllers -->
+    <node name="controller_spawner" pkg="controller_manager" type="spawner" respawn="false"
+    output="screen" ns="/Aribot" args=" fr_velocity_controller
+                                            fl_velocity_controller
+                                            br_velocity_controller
+                                            bl_velocity_controller
+                                            joint_state_controller"/>
+    
+   <!-- convert joint states to TF transforms for rviz, etc -->
+  <node name="robot_state_publisher" pkg="robot_state_publisher" type="robot_state_publisher"
+    respawn="false" output="screen">
+    <remap from="/joint_states" to="/Aribot/joint_states" />
+  </node>
+
+  <!-- Launch rviz-->
+  <node
+    name="rviz"
+    pkg="rviz"
+    type="rviz"
+    args="-d $(find aribot)/config/rviz_config.rviz" />
+
+  <!-- Dynamic transform from world to aribot-->
+  <node name="tf_broadcast_node" pkg="aribot" type="tf_broadcast.py" />
+
+</launch>
+

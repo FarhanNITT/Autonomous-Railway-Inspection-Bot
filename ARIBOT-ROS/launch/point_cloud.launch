@@ -1,0 +1,10 @@
+<launch>
+  <node type="laser_scan_assembler" pkg="laser_assembler" name="my_assembler1">
+    <remap from="scan" to="/Aribot/laser/scan"/>
+    <param name="max_scans" type="int" value="500" />
+    <param name="fixed_frame" type="string" value="world" />
+  </node>
+
+  <node name="laser_to_pc_node" pkg="aribot" type="laser2pc.py" />
+
+</launch>
