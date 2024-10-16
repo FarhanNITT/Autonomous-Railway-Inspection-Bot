@@ -1,5 +1,5 @@
 # ARIBOT
-Autonomous Railway Inspection Robot
+Autonomous Railway Inspection Robot built as a part of Ministry of Education's Innovation cell, Government of India.
 
 ## Abstract
 
