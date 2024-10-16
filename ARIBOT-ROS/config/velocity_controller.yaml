@@ -1,0 +1,26 @@
+Aribot:
+  # Publish all joint states -----------------------------------
+  joint_state_controller:
+    type: joint_state_controller/JointStateController
+    publish_rate: 50
+
+  # Position Controllers ---------------------------------------
+  fr_velocity_controller:
+    type: velocity_controllers/JointVelocityController
+    joint: mf_frw
+    pid: {p: 5.0, i: 0.001, d: 0.0}
+
+  fl_velocity_controller:
+    type: velocity_controllers/JointVelocityController
+    joint: mf_flw
+    pid: {p: 5.0, i: 0.001, d: 0.0}
+
+  br_velocity_controller:
+    type: velocity_controllers/JointVelocityController
+    joint: mf_brw
+    pid: {p: 5.0, i: 0.001, d: 0.0}
+
+  bl_velocity_controller:
+    type: velocity_controllers/JointVelocityController
+    joint: mf_blw
+    pid: {p: 5.0, i: 0.001, d: 0.0}
